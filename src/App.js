@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 function App() {
   return (
     <>
-      <Navbar />
+      <Navbar title="TEXT-UTILS" aboutText="About TEXT-UTILS"/>
     </>
   );
 }
