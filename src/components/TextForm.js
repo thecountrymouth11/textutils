@@ -34,9 +34,12 @@ export default function TextForm(props) {
 
   return (
     <>
-      <div className="container" style={{
-              color: props.mode === "dark" ? "white" : "black",
-            }}>
+      <div
+        className="container"
+        style={{
+          color: props.mode === "dark" ? "white" : "#0a324f",
+        }}
+      >
         <h1>{props.heading}</h1>
         <div className="mb-3">
           <textarea
@@ -46,8 +49,8 @@ export default function TextForm(props) {
             value={text}
             onChange={handleOnChange}
             style={{
-              backgroundColor: props.mode === "dark" ? "grey" : "white",
-              color: props.mode === "dark" ? "white" : "black"
+              backgroundColor: props.mode === "dark" ? "#0a324f" : "white",
+              color: props.mode === "dark" ? "white" : "#0a324f",
             }}
           ></textarea>
         </div>
@@ -67,16 +70,19 @@ export default function TextForm(props) {
           Remove ExtraSpace
         </button>
       </div>
-      <div className="container my-3" style={{
-              color: props.mode === "dark" ? "white" : "black",
-            }}>
+      <div
+        className="container my-3"
+        style={{
+          color: props.mode === "dark" ? "white" : "#0a324f",
+        }}
+      >
         <h2>Your text summary</h2>
         <p>
           {text.split(" ").length} words and {text.length} characters
         </p>
         <p>{0.008 * text.split(" ").length} minutes read</p>
         <h3>Preview</h3>
-        <p>{text.length>0?text:"enter something above to preview..."}</p>
+        <p>{text.length > 0 ? text : "enter something above to preview..."}</p>
       </div>
     </>
   );

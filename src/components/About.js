@@ -1,29 +1,28 @@
 import React, { useState } from "react";
 
 export default function About() {
-
   const [myStyle, setmyStyle] = useState({
     color: "black",
     backgroundColor: "white",
   });
 
-  const [btnText, setBtnText] = useState("Dark Mode")
+  const [btnText, setBtnText] = useState("Dark Mode");
 
-  const toggleStyle=()=>{
-    if(myStyle.color==='black'){
-        setmyStyle({
-            color: "white",
-            backgroundColor: "black",
-          })
-          setBtnText("Light Mode")
-    }else{
-        setmyStyle({
-            color: "black",
-            backgroundColor: "white",
-          })
-          setBtnText("Dark Mode")
+  const toggleStyle = () => {
+    if (myStyle.color === "black") {
+      setmyStyle({
+        color: "white",
+        backgroundColor: "black",
+      });
+      setBtnText("Light Mode");
+    } else {
+      setmyStyle({
+        color: "black",
+        backgroundColor: "white",
+      });
+      setBtnText("Dark Mode");
     }
-  }
+  };
   return (
     <div className="container" style={myStyle}>
       <h1>About</h1>
@@ -123,7 +122,11 @@ export default function About() {
         </div>
       </div>
       <div className="container my-3">
-        <button onClick={toggleStyle} type="button" className="btn btn-outline-success">
+        <button
+          onClick={toggleStyle}
+          type="button"
+          className="btn btn-outline-success"
+        >
           {btnText}
         </button>
       </div>
