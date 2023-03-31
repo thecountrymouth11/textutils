@@ -26,7 +26,7 @@ export default function TextForm(props) {
     let text = document.getElementById("textBox");
     text.select();
     navigator.clipboard.writeText(text.value);
-    props.showAlert("Text copied!!!","success")
+    props.showAlert("Text copied to clipboard!","success")
   };
 
   const handleExtraSpace = () => {
