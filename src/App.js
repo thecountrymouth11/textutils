@@ -1,4 +1,5 @@
 import "./App.css";
+import Alert from "./components/Alert";
 // import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
@@ -11,10 +12,20 @@ function App() {
     if (mode === "light") {
       setMode("dark");
       document.body.style.backgroundColor = "#0a324f";
+      showAlert("Dark mode is on!!!", "success");
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
+      showAlert("Light mode is on!!!", "success");
     }
+  };
+
+  const [alert, setAlert] = useState(null);
+  const showAlert = (message, type) => {
+    setAlert({
+      message: message,
+      type: type,
+    });
   };
 
   return (
@@ -25,6 +36,7 @@ function App() {
         mode={mode}
         toggleMode={toggleMode}
       />
+      <Alert alert={alert} />
       <div className="container">
         <TextForm heading="Enter the text to analyze" mode={mode} />
         {/* <About /> */}
