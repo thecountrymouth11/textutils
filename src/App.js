@@ -44,11 +44,11 @@ function App() {
         <Alert alert={alert} />
         <div className="container">
           <Routes>
-            <Route path="/about" element={<About />} />
+            <Route exact path="/about" element={<About />} />
           </Routes>
           <Routes>
             <Route
-              path="/"
+              exact path="/"
               element={
                 <TextForm
                   heading="Enter the text to analyze"
