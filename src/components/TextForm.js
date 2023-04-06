@@ -51,7 +51,7 @@ export default function TextForm(props) {
           <textarea
             className="form-control"
             id="textBox"
-            rows="11"
+            rows="8"
             value={text}
             onChange={handleOnChange}
             style={{
