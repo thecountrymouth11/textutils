@@ -4,17 +4,17 @@ export default function TextForm(props) {
   const handleUpClick = () => {
     // console.log("uppercase was clicked!");
     setText(text.toUpperCase());
-    props.showAlert("Converted to uppercase!","success")
+    props.showAlert("Converted to uppercase!", "success");
   };
 
   const handleLoClick = () => {
     setText(text.toLowerCase());
-    props.showAlert("Converted to lowercase!","success")
+    props.showAlert("Converted to lowercase!", "success");
   };
 
   const handleClearClick = () => {
     setText("");
-    props.showAlert("Cleared the textarea!","success")
+    props.showAlert("Cleared the textarea!", "success");
   };
 
   const handleOnChange = (event) => {
@@ -26,13 +26,14 @@ export default function TextForm(props) {
     let text = document.getElementById("textBox");
     text.select();
     navigator.clipboard.writeText(text.value);
-    props.showAlert("Text copied to clipboard!","success")
+    document.getSelection().removeAllRanges();
+    props.showAlert("Text copied to clipboard!", "success");
   };
 
   const handleExtraSpace = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
-    props.showAlert("Removed all extraspaces!","success")
+    props.showAlert("Removed all extraspaces!", "success");
   };
 
   const [text, setText] = useState("");
@@ -54,24 +55,45 @@ export default function TextForm(props) {
             value={text}
             onChange={handleOnChange}
             style={{
-              backgroundColor: props.mode === "dark" ? "rgb(26, 28, 30)" : "white",
+              backgroundColor:
+                props.mode === "dark" ? "rgb(26, 28, 30)" : "white",
               color: props.mode === "dark" ? "white" : "rgb(26, 28, 30)",
             }}
           ></textarea>
         </div>
-        <button className="btn btn-success mx-1 my-1" onClick={handleUpClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-success mx-1 my-1"
+          onClick={handleUpClick}
+        >
           Uppercase
         </button>
-        <button className="btn btn-success mx-1 my-1" onClick={handleLoClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-success mx-1 my-1"
+          onClick={handleLoClick}
+        >
           Lowercase
         </button>
-        <button className="btn btn-success mx-1 my-1" onClick={handleClearClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-success mx-1 my-1"
+          onClick={handleClearClick}
+        >
           Clear
         </button>
-        <button className="btn btn-success mx-1 my-1" onClick={handleCopy}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-success mx-1 my-1"
+          onClick={handleCopy}
+        >
           Copy
         </button>
-        <button className="btn btn-success mx-1 my-1" onClick={handleExtraSpace}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-success mx-1 my-1"
+          onClick={handleExtraSpace}
+        >
           Remove ExtraSpace
         </button>
       </div>
@@ -83,11 +105,22 @@ export default function TextForm(props) {
       >
         <h2>Your text summary</h2>
         <p>
-          {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters
+          {
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          words and {text.length} characters
         </p>
-        <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} minutes read</p>
+        <p>
+          {0.008 *
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length}{" "}
+          minutes read
+        </p>
         <h3>Preview</h3>
-        <p>{text.length > 0 ? text : "enter something above to preview..."}</p>
+        <p>{text.length > 0 ? text : "Nothing to preview!"}</p>
       </div>
     </>
   );
