@@ -12,7 +12,7 @@ function App() {
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
-      document.body.style.backgroundColor = "#0a324f";
+      document.body.style.backgroundColor = "rgb(26, 28, 30)";
       showAlert("Dark mode is on!!!", "success");
     } else {
       setMode("light");
@@ -44,7 +44,7 @@ function App() {
         <Alert alert={alert} />
         <div className="container">
           <Routes>
-            <Route exact path="/about" element={<About />} />
+            <Route exact path="/about" element={<About mode={mode}/>} />
           </Routes>
           <Routes>
             <Route

@@ -42,7 +42,7 @@ export default function TextForm(props) {
       <div
         className="container"
         style={{
-          color: props.mode === "dark" ? "white" : "#0a324f",
+          color: props.mode === "dark" ? "white" : "rgb(26, 28, 30)",
         }}
       >
         <h1>{props.heading}</h1>
@@ -54,31 +54,31 @@ export default function TextForm(props) {
             value={text}
             onChange={handleOnChange}
             style={{
-              backgroundColor: props.mode === "dark" ? "#0a324f" : "white",
-              color: props.mode === "dark" ? "white" : "#0a324f",
+              backgroundColor: props.mode === "dark" ? "rgb(26, 28, 30)" : "white",
+              color: props.mode === "dark" ? "white" : "rgb(26, 28, 30)",
             }}
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-1" onClick={handleUpClick}>
+        <button className="btn btn-success mx-1 my-1" onClick={handleUpClick}>
           Uppercase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleLoClick}>
+        <button className="btn btn-success mx-1 my-1" onClick={handleLoClick}>
           Lowercase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleClearClick}>
+        <button className="btn btn-success mx-1 my-1" onClick={handleClearClick}>
           Clear
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleCopy}>
+        <button className="btn btn-success mx-1 my-1" onClick={handleCopy}>
           Copy
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleExtraSpace}>
+        <button className="btn btn-success mx-1 my-1" onClick={handleExtraSpace}>
           Remove ExtraSpace
         </button>
       </div>
       <div
         className="container my-3"
         style={{
-          color: props.mode === "dark" ? "white" : "#0a324f",
+          color: props.mode === "dark" ? "white" : "rgb(26, 28, 30)",
         }}
       >
         <h2>Your text summary</h2>
