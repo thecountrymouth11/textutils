@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
   const handleUpClick = () => {
-    // console.log("uppercase was clicked!");
     setText(text.toUpperCase());
     props.showAlert("Converted to uppercase!", "success");
   };
@@ -18,15 +17,11 @@ export default function TextForm(props) {
   };
 
   const handleOnChange = (event) => {
-    // console.log("handling on change!");
     setText(event.target.value);
   };
 
   const handleCopy = () => {
-    let text = document.getElementById("textBox");
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
+    navigator.clipboard.writeText(text);
     props.showAlert("Text copied to clipboard!", "success");
   };
 
@@ -106,7 +101,7 @@ export default function TextForm(props) {
         <h2>Your text summary</h2>
         <p>
           {
-            text.split(" ").filter((element) => {
+            text.split(/\s+/).filter((element) => {
               return element.length !== 0;
             }).length
           }{" "}
